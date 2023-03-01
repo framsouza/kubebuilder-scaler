@@ -48,14 +48,14 @@ spec:
                   type: object
                 type: array
               end:
-                type: integer
+                type: string
               replicas:
                 format: int32
                 type: integer
               start:
                 description: Foo is an example field of Scaler. Edit scaler_types.go
                   to remove/update
-                type: integer
+                type: string
             required:
             - deployments
             - end

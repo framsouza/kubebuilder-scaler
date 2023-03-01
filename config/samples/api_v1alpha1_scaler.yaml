@@ -1,10 +1,10 @@
 apiVersion: api.framsouza.co/v1alpha1
 kind: Scaler
 metadata:
-  name: scaler-sample
+  name: scaler-sample-2
 spec:
-  start: 9
-  end: 10
+  start: "17:00"
+  end: "17:19"
   replicas: 5
   deployments:
     - name: nginx

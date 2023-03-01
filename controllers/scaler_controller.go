@@ -63,14 +63,15 @@ func (r *ScalerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctr
 	}
 
 	replicas := scaler.Spec.Replicas
-	currentHour := time.Now().UTC().Hour()
+	currentHour := time.Now()
+	hour, minute, _ := currentHour.Clock()
+	currentTime := fmt.Sprintf("%d:%d", hour, minute)
 	startTime := scaler.Spec.Start
 	endTime := scaler.Spec.End
 
-	log.Info(fmt.Sprintf("Current time %d", currentHour))
+	log.Info(fmt.Sprintf("Current time %s", currentTime))
 
-	//	if currentHour.After(startTime) && currentHour.Before(EndTime) {
-	if currentHour >= startTime && currentHour <= endTime {
+	if currentTime >= startTime && currentTime <= endTime {
 
 		for _, deploy := range scaler.Spec.Deployments {
 			deployments := &v1.Deployment{}
