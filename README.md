@@ -8,8 +8,8 @@ kind: Scaler
 metadata:
   name: scaler-sample
 spec:
-  start: 9
-  end: 10
+  start: "9:00"
+  end: "10:15"
   replicas: 5
   deployments:
     - name: nginx
