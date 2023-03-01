@@ -1,0 +1,11 @@
+apiVersion: api.framsouza.co/v1alpha1
+kind: Scaler
+metadata:
+  name: scaler-sample
+spec:
+  start: 9
+  end: 10
+  replicas: 5
+  deployments:
+    - name: nginx
+      namespace: default
